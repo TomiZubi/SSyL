@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #define BLOCK 100
 
+//Tomas Zubizarreta
+
 char * eliminar ( char * string, int inicio, int fin ) {
   int i = 0, k = 0;
   int len = strlen(string);
