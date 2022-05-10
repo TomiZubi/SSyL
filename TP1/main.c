@@ -27,7 +27,7 @@ void evaluar( char * string ) {
       c = tolower(c);
     else if ( islower(c) )
       c = toupper(c);
-    /*else if ( c == ','){
+    else if ( c == ','){
         int k = i;
         while ('0' <= c <= '9'){
             i++;
@@ -35,7 +35,7 @@ void evaluar( char * string ) {
         }
         i = k;
         string = eliminar (string, k, i);
-    }*/
+    }
     string[i] = c;
   }
   return;
