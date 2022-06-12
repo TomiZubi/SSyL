@@ -1,68 +1,29 @@
+// Tomas Zubizarreta
+
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 #include <stdlib.h>
-#define BLOCK 100
+#include <ctype.h>
 
-//Tomas Zubizarreta
-
-char * eliminar ( char * string, int inicio, int fin ) {
-  int i = 0, k = 0;
-  int len = strlen(string);
-  char * aux = malloc(len+1);
-  while ( string[i] != 0 ){
-    if ( i < inicio || i > fin ){
-    aux[k++] = string[i];
-    //printf("\nACA\n");
+char* evaluar (char string[]) {
+    for (int i = 0; string [i] != '\0'; i++){
+        if (isupper (string[i]))
+            string [i] = tolower (string[i]);
+        else if (islower (string[i]))
+            string [i] = toupper (string[i]);
+        else if (isdigit (string[i]))
+            string [i] = NULL;
     }
-  }
-  return aux;
+    return string;
 }
 
-void evaluar( char * string ) {
-  int l = strlen(string)+1;
-  for ( int i = 0 ; i < l ; i++ ){
-    char c = string[i];
-    if ( isupper(c) )
-      c = tolower(c);
-    else if ( islower(c) )
-      c = toupper(c);
-    else if ( c == ','){
-        int k = i;
-        while ('0' <= c <= '9'){
-            i++;
-            string [i] = c;
-        }
-        i = k;
-        string = eliminar (string, k, i);
-    }
-    string[i] = c;
-  }
-  return;
-}
-
-
-/*void evaluar( char * string ){
-  char c;
-  int i=0;
-  while (c = getchar()!='\n'){
-    char c = string[i];
-    if ( isupper(c) )
-      c = tolower(c);
-    else if ( islower(c) )
-      c = toupper(c);
-    string[i] = c;
-    i++;
-  }
-}*/
-
-int main() {
+int main()
+{
+    char string [100];
+    char* c;
     printf ("Por favor ingrese una palabra: ");
-    char string[BLOCK];
     scanf ("%s", string);
-    //fgets(string,BLOCK,stdin);
-    gets(string);
-    evaluar(string);
-    printf ("Devuelve %s", string);
+    c = evaluar (string);
+    printf ("Devuelve %s", c);
     return 0;
 }
+
