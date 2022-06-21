@@ -6,7 +6,7 @@
 int main()
 {
     int p;
-    printf ("Ingrese :");
+    printf ("Ingrese una palabra :");
     scanf ("%d", p);
     while ((p=getchar())!= EOF){
         if (islower (p))
